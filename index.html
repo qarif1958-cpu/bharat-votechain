@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat VoteChain 2.0 - Varanasi Pilot</title>
+<style>
+body{font-family: system-ui; background:#f8fafc; margin:0; padding:20px; color:#0f172a}
+.card{max-width:480px; margin:auto; background:white; border-radius:16px; padding:24px; box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.badge{display:inline-block; background:#dcfce7; color:#166534; padding:4px 10px; border-radius:20px; font-size:12px; font-weight:700}
+h1{font-size:24px; line-height:1.2}
+.step{display:flex; gap:12px; margin:16px 0; align-items:center}
+.num{width:36px; height:36px; border-radius:50%; background:#0f172a; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0}
+.wallet{border:2px dashed #cbd5e1; border-radius:12px; padding:16px; text-align:center; margin-top:20px}
+.btn{width:100%; padding:14px; background:#16a34a; color:white; border:none; border-radius:10px; font-weight:700; font-size:16px; margin-top:12px}
+.btn:disabled{background:#94a3b8}
+.blocked{background:#fee2e2; color:#991b1b; padding:10px; border-radius:8px; text-align:center; margin-top:12px; font-weight:700; display:none}
+.coin{font-size:40px}
+</style>
+</head>
+<body>
+<div class="card">
+<span class="badge">VARANASI WARD 10 PILOT</span>
+<h1>Bharat VoteChain 2.0</h1>
+<p><b>Logic: 1 Wallet = 1 Coin = 1 Vote = Fir Hamesha Block</b></p>
+
+<div class="step"><div class="num">1</div><div>Voter ko ek wallet milta hai</div></div>
+<div class="step"><div class="num">2</div><div>Usme sirf 1 coin aata hai</div></div>
+<div class="step"><div class="num">3</div><div>Vote bhejte hi wallet permanent block</div></div>
+
+<div class="wallet" id="walletBox">
+<div class="coin" id="coin">🪙</div>
+<div id="status">Wallet me 1 Coin hai</div>
+<button class="btn" id="voteBtn" onclick="vote()">Vote Bhejo - Candidate A ko</button>
+<div class="blocked" id="blocked">⛔ WALLET BLOCKED - Ab na send, na receive hoga</div>
+</div>
+
+<p style="font-size:13px; color:#64748b; margin-top:16px">Isse double voting khatam, vote bikna khatam. Har transaction blockchain pe record.</p>
+<p style="font-size:12px; margin-top:20px">Made by qarif1958-cpu | Varanasi | 2026</p>
+</div>
+<script>
+let voted=false;
+function vote(){
+ if(voted) return;
+ voted=true;
+ document.getElementById('coin').innerText='✅';
+ document.getElementById('status').innerText='Vote Candidate A ko chala gaya';
+ document.getElementById('voteBtn').disabled=true;
+ document.getElementById('voteBtn').innerText='Voted Done';
+ document.getElementById('blocked').style.display='block';
+}
+</script>
+</body>
+</html>
